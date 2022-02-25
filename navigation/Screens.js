@@ -28,7 +28,8 @@ const profile = {
   name: "iheb moujahed",
   type: "Producer",
   plan: "Pro",
-  rating: 4.8
+  rating: 5,
+  Follower:3
 };
 
 

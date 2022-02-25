@@ -55,6 +55,7 @@ function CustomDrawerContent({
             {profile.rating}{" "}
             <Icon name="shape-star" family="GalioExtra" size={14} />
           </Text>
+          
         </Block>
       </Block>
       <Block flex style={{ paddingLeft: 7, paddingRight: 14 }}>
