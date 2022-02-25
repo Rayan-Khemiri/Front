@@ -7,6 +7,7 @@ import { Icon, Drawer as DrawerCustomItem } from '../components/';
 import { Images, materialTheme } from "../constants/";
 
 
+
 function CustomDrawerContent({
   drawerPosition,
   navigation,
@@ -121,14 +122,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginBottom: theme.SIZES.BASE,
   },
-  pro: {
-    backgroundColor: materialTheme.COLORS.LABEL,
-    paddingHorizontal: 6,
-    marginRight: 8,
-    borderRadius: 4,
-    height: 19,
-    width: 38,
-  },
+  // pro: {
+  //   backgroundColor: materialTheme.COLORS.LABEL,
+  //   paddingHorizontal: 6,
+  //   marginRight: 8,
+  //   borderRadius: 4,
+  //   height: 19,
+  //   width: 38,
+  // },
   seller: {
     marginRight: 16,
   }

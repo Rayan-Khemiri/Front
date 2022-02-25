@@ -21,7 +21,7 @@ export default class Profile extends React.Component {
             imageStyle={styles.profileImage}>
             <Block flex style={styles.profileDetails}>
               <Block style={styles.profileTexts}>
-                <Text color="white" size={28} style={{ paddingBottom: 8 }}>Iheb Moujahed</Text>
+                <Text color="white" size={28} style={{ paddingBottom: 8 }}>Rayan Khemiri</Text>
                 <Block row space="between">
                   <Block row>
                     <Block middle style={styles.pro}>
@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
   profile: {
     marginTop: Platform.OS === 'android' ? -HeaderHeight : 0,
     marginBottom: -HeaderHeight * 2,
+    backgroundColor: '#000000'
   },
   profileImage: {
     width: width * 1.1,

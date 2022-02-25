@@ -1,3 +1,4 @@
+import { theme } from 'galio-framework'
 import React from 'react'
 import {
   View,

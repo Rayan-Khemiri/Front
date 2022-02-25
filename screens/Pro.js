@@ -27,13 +27,13 @@ export default class Pro extends React.Component {
             <Block>
               <Block >
                 <Block>
-                  <Text color="white" size={60}>Cine</Text>
+                  <Text color="white" size={50}>CineCast</Text>
                 </Block>
                 <Block>
-                  <Text color="white" size={60}>casting</Text>
+                  <Text color="white" size={60}>Premium</Text>
                 </Block>
                 <Block row>
-                  <Text color="white" size={60}>production</Text>
+                  <Text color="white" size={40}>production</Text>
                   <Block middle style={styles.pro}>
                     <Text size={16} color="white">PRO</Text>
                   </Block>
