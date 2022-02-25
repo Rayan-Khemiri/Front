@@ -130,7 +130,7 @@ export default DrawerItem;
 const styles = StyleSheet.create({
   defaultStyle: {
     paddingVertical: 16,
-    paddingHorizontal: 16
+    paddingHorizontal: 26
   },
   activeStyle: {
     backgroundColor: materialTheme.COLORS.ACTIVE,

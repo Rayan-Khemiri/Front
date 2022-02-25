@@ -13,7 +13,6 @@ import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
 import SignUp from '../screens/SignUp'
 import SignIn from '../screens/SignIn';
-
 import CustomDrawerContent from './Menu';
 import { Icon, Header } from '../components';
 import { Images, materialTheme } from "../constants/";
@@ -25,7 +24,7 @@ const Drawer = createDrawerNavigator();
 
 const profile = {
   avatar: Images.Profile,
-  name: "iheb moujahed",
+  name: "Ryan Rio",
   type: "Producer",
   plan: "Pro",
   rating: 4.8
