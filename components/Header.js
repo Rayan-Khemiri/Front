@@ -22,7 +22,7 @@ const ChatButton = ({isWhite, style, navigation}) => (
 );
 
 const BasketButton = ({isWhite, style, navigation}) => (
-  <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Pro')}>
+  <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Post')}>
     <Icon
       family="GalioExtra"
       size={16}
@@ -198,6 +198,7 @@ const styles = StyleSheet.create({
     width: '100%',
     fontSize: 16,
     fontWeight: 'bold',
+    
   },
   navbar: {
     paddingVertical: 0,
@@ -206,12 +207,13 @@ const styles = StyleSheet.create({
     zIndex: 5,
   },
   shadow: {
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: '#3D3D3D',
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.2,
     elevation: 3,
+    
   },
   notify: {
     backgroundColor: materialTheme.COLORS.LABEL,
@@ -252,5 +254,6 @@ const styles = StyleSheet.create({
   tabTitle: {
     lineHeight: 19,
     fontWeight: '300'
+    
   },
 })

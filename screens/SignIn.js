@@ -1,8 +1,7 @@
 
 import React from "react"
 import { StyleSheet, Text, View, Image, Button, TextInput } from "react-native"
-// import Expo from "expo"
-// import { GLView } from 'expo-gl';
+
 import * as Google from "expo-google-app-auth"
 
 
@@ -40,7 +39,6 @@ export default class App extends React.Component {
     }
   }
   signUp = async () => {
-    // const [chosenDate, setChosenDate] = useState(new Date());
     const { user, pass } = this.state
     try {
       // here place your signup logic
@@ -97,7 +95,7 @@ export default class App extends React.Component {
 const LoginPage = props => {
   return (
     <View>
-      <Text style={styles.header}>Sign In With Google</Text>
+      <Text style={styles.header}>Continue with google</Text>
       <Button title="Sign in with Google" onPress={() => props.signIn()} />
     </View>
   )
@@ -115,7 +113,7 @@ const LoggedInPage = props => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#111111",
     alignItems: "center",
     justifyContent: "center"
   },
@@ -133,7 +131,7 @@ const styles = StyleSheet.create({
   input: {
     width: 350,
     height: 55,
-    backgroundColor: '#42A5F5',
+    backgroundColor: '#ffffff',
     margin: 10,
     padding: 8,
     color: 'white',

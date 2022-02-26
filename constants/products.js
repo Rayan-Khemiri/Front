@@ -1,6 +1,6 @@
 export default [
   {
-    title: 'Saying Haaaaaaaa..',
+    title: 'rayen.',
     image: 'https://i.pinimg.com/originals/25/1b/3b/251b3b22a096f8eae969ce3e79313281.jpg',
     price: 0,
     horizontal: true,
