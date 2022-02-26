@@ -12,7 +12,9 @@ import ProfileScreen from '../screens/Profile';
 import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
 import SignUp from '../screens/SignUp'
+
 import SignIn from '../screens/SignIn';
+import Streamer from '../screens/Streaming';
 import CustomDrawerContent from './Menu';
 import { Icon, Header } from '../components';
 import { Images, materialTheme } from "../constants/";
@@ -83,6 +85,21 @@ function ComponentsStack(props) {
         options={{
           header: ({ navigation, scene }) => (
             <Header title="Components" scene={scene} navigation={navigation} />
+          )
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+function StreamingStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="screen">
+      <Stack.Screen
+        name="Streaming"
+        component={Streamer}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header title="Streaming" scene={scene} navigation={navigation} />
           )
         }}
       />
@@ -297,6 +314,21 @@ function AppStack(props) {
           )
         }}
       />
+<Drawer.Screen
+        name="Streaming"
+        component={Streamer}
+        options={{
+          drawerIcon: ({ focused }) => (
+            <Icon
+              size={16}
+              name="ios-log-in"
+              family="ionicon"
+              color={focused ? "white" : materialTheme.COLORS.MUTED}
+            />
+          )
+        }}
+      />
+
     </Drawer.Navigator>
   );
 }

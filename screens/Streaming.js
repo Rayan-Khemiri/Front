@@ -2,7 +2,7 @@ import React from 'react';
 import { Dimensions, View } from "react-native";
 import { NodeCameraView } from "react-native-nodemediaclient";
 
-const { width, height } = Dimensions.get("window ");
+const { width, height } = Dimensions.get("window");
 
 const config = {
   cameraConfig: {
@@ -23,7 +23,7 @@ const config = {
   }
 };
 
-const BroadcastScreen = () => {
+const Streamer = () => {
   const cameraViewRef = React.useRef(null);
   const streamKey = '5b2a4a75-86c2-177c-72a2-45ab2b5e2583';
   const url = `rtmps://global-live.mux.com:443/app/${streamKey}`;
@@ -43,4 +43,4 @@ const BroadcastScreen = () => {
   );
 };
 
-export default BroadcastScreen;
+export default Streamer;

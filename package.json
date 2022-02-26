@@ -14,6 +14,7 @@
     "url": "git+https://github.com/creativetimofficial/argon-react-native.git"
   },
   "dependencies": {
+    "@api.video/react-native-livestream": "^0.2.1",
     "@react-native-community/datetimepicker": "3.5.2",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.5.1",
@@ -22,6 +23,8 @@
     "@react-navigation/native": "5.9.3",
     "@react-navigation/stack": "5.14.3",
     "@use-expo/font": "^2.0.0",
+    "cd": "^0.3.3",
+    "core-js": "^3.21.1",
     "doctor": "^0.3.0",
     "expo": "^42.0.5",
     "expo-app-loading": "1.1.2",
@@ -33,6 +36,7 @@
     "galio-framework": "^0.8.0",
     "i": "^0.3.7",
     "ios": "^0.0.1",
+    "link": "^0.1.5",
     "npm": "^8.5.1",
     "pod": "^0.9.0",
     "prop-types": "^15.7.2",
@@ -42,6 +46,7 @@
     "react-native-datefield": "^0.3.5",
     "react-native-datepicker": "^1.7.2",
     "react-native-gesture-handler": "~1.10.2",
+    "react-native-live-stream": "^1.0.1",
     "react-native-modal-dropdown": "git+https://github.com/siemiatj/react-native-modal-dropdown.git",
     "react-native-nodemediaclient": "^0.2.18",
     "react-native-option-select": "^1.0.4",

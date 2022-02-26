@@ -23,6 +23,7 @@ function CustomDrawerContent({
     // "Man",
     // "Kids",
     // "Sign In",
+    "Streaming",
     "Profile",
     "Settings",
     "Components"
