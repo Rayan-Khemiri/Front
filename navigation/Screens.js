@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import { Block, Text, theme } from "galio-framework";
-
+import Post from "../screens/Post"
 import ComponentsScreen from '../screens/Components';
 import HomeScreen from '../screens/Home';
 import OnboardingScreen from '../screens/Onboarding';
@@ -13,7 +13,6 @@ import ProScreen from '../screens/Pro';
 import SettingsScreen from '../screens/Settings';
 import SignUp from '../screens/SignUp'
 import SignIn from '../screens/SignIn';
-
 import CustomDrawerContent from './Menu';
 import { Icon, Header } from '../components';
 import { Images, materialTheme } from "../constants/";
@@ -25,10 +24,11 @@ const Drawer = createDrawerNavigator();
 
 const profile = {
   avatar: Images.Profile,
-  name: "iheb moujahed",
+  name: "Ryan Rio",
   type: "Producer",
   plan: "Pro",
-  rating: 4.8
+  rating: 5,
+  Follower:3
 };
 
 
@@ -280,10 +280,25 @@ function AppStack(props) {
               name="ios-log-in"
               family="ionicon"
               color={focused ? "white" : materialTheme.COLORS.MUTED}
+              // style={{flex:1,backgroundColor:"#F9FBFC"}}
             />
           )
         }}
       />
+      <Drawer.Screen
+      name="Post"
+      component={Post}
+      options={{
+        drawerIcon: ({ focused }) => (
+          <Icon
+            size={16}
+            name="ios-log-in"
+            family="ionicon"
+            color={focused ? "white" : materialTheme.COLORS.MUTED}
+          />
+        )
+      }}
+    />
       <Drawer.Screen
         name="Sign Up"
         component={SignUp}

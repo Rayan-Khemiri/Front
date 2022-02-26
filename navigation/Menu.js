@@ -7,6 +7,7 @@ import { Icon, Drawer as DrawerCustomItem } from '../components/';
 import { Images, materialTheme } from "../constants/";
 
 
+
 function CustomDrawerContent({
   drawerPosition,
   navigation,
@@ -24,7 +25,7 @@ function CustomDrawerContent({
     // "Sign In",
     "Profile",
     "Settings",
-    "Components"
+    "Components",
   ];
   return (
     <Block
@@ -55,6 +56,7 @@ function CustomDrawerContent({
             {profile.rating}{" "}
             <Icon name="shape-star" family="GalioExtra" size={14} />
           </Text>
+          
         </Block>
       </Block>
       <Block flex style={{ paddingLeft: 7, paddingRight: 14 }}>
@@ -91,6 +93,7 @@ function CustomDrawerContent({
           navigation={navigation}
           focused={state.index === 9 ? true : false}
         />
+
       </Block>
     </Block>
   );
@@ -121,14 +124,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginBottom: theme.SIZES.BASE,
   },
-  pro: {
-    backgroundColor: materialTheme.COLORS.LABEL,
-    paddingHorizontal: 6,
-    marginRight: 8,
-    borderRadius: 4,
-    height: 19,
-    width: 38,
-  },
+  // pro: {
+  //   backgroundColor: materialTheme.COLORS.LABEL,
+  //   paddingHorizontal: 6,
+  //   marginRight: 8,
+  //   borderRadius: 4,
+  //   height: 19,
+  //   width: 38,
+  // },
   seller: {
     marginRight: 16,
   }

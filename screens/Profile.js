@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform,Button } from 'react-native';
 import { Block, Text, theme } from 'galio-framework';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -21,7 +21,7 @@ export default class Profile extends React.Component {
             imageStyle={styles.profileImage}>
             <Block flex style={styles.profileDetails}>
               <Block style={styles.profileTexts}>
-                <Text color="white" size={28} style={{ paddingBottom: 8 }}>Iheb Moujahed</Text>
+                <Text color="white" size={28} style={{ paddingBottom: 8 }}>Rayan Khemiri</Text>
                 <Block row space="between">
                   <Block row>
                     <Block middle style={styles.pro}>
@@ -50,10 +50,12 @@ export default class Profile extends React.Component {
               <Block middle>
                 <Text bold size={12} style={{marginBottom: 8}}>36</Text>
                 <Text muted size={12}>Orders</Text>
+
               </Block>
               <Block middle>
                 <Text bold size={12} style={{marginBottom: 8}}>5</Text>
                 <Text muted size={12}>Bids & Offers</Text>
+                
               </Block>
               <Block middle>
                 <Text bold size={12} style={{marginBottom: 8}}>2</Text>
@@ -73,6 +75,7 @@ export default class Profile extends React.Component {
                     resizeMode="cover"
                     style={styles.thumb}
                   />
+                  
                 ))}
               </Block>
             </Block>
@@ -88,6 +91,7 @@ const styles = StyleSheet.create({
   profile: {
     marginTop: Platform.OS === 'android' ? -HeaderHeight : 0,
     marginBottom: -HeaderHeight * 2,
+    backgroundColor: '#000000'
   },
   profileImage: {
     width: width * 1.1,
