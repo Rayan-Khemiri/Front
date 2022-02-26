@@ -279,6 +279,7 @@ function AppStack(props) {
               name="ios-log-in"
               family="ionicon"
               color={focused ? "white" : materialTheme.COLORS.MUTED}
+              // style={{flex:1,backgroundColor:"#F9FBFC"}}
             />
           )
         }}
