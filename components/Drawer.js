@@ -33,6 +33,7 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
         );
+      
       case "Settings":
         return (
           <Icon
