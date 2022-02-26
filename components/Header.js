@@ -206,12 +206,13 @@ const styles = StyleSheet.create({
     zIndex: 5,
   },
   shadow: {
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: '#3D3D3D',
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.2,
     elevation: 3,
+    
   },
   notify: {
     backgroundColor: materialTheme.COLORS.LABEL,

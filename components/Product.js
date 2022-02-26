@@ -14,7 +14,7 @@ class Product extends React.Component {
 
     return (
       <Block row={horizontal} card flex style={[styles.product, styles.shadow, style]}>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro', { product: product })}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Profile', { product: product })}>
           <Block flex style={[styles.imageContainer, styles.shadow]}>
             <Image source={{ uri: product.image }} style={imageStyles} />
           </Block>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   productTitle: {
     flex: 1,
     flexWrap: 'wrap',
-    paddingBottom: 6,
+    paddingBottom: 1,
   },
   productDescription: {
     padding: theme.SIZES.BASE / 2,
@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
   },
   image: {
     borderRadius: 3,
-    marginHorizontal: theme.SIZES.BASE / 2,
-    marginTop: -16,
+    marginHorizontal: theme.SIZES.BASE / 3,
+    marginTop: 6,
   },
   horizontalImage: {
     height: 122,

@@ -28,7 +28,7 @@ export default class Home extends React.Component {
     const { navigation } = this.props;
 
     return (
-      <Block row style={styles.tabs}>
+      <Block row style={styles.tabs} >
         <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Pro')}>
           <Block row middle>
             <Icon name="grid" family="feather" style={{ paddingRight: 8 }} />
@@ -51,12 +51,12 @@ export default class Home extends React.Component {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
         <Block flex>
-          <Product product={products[0]} horizontal />
-          <Block flex row>
-            <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[2]} />
+          <Product product={products[0]} full />
+          <Block flex >
+            <Product product={products[1]} full />
+            <Product product={products[2]} full />
           </Block>
-          <Product product={products[3]} horizontal />
+          <Product product={products[3]}  full />
           <Product product={products[4]} full />
         </Block>
       </ScrollView>
@@ -74,7 +74,8 @@ export default class Home extends React.Component {
 
 const styles = StyleSheet.create({
   home: {
-    width: width,    
+    width: width,   
+    backgroundColor: '#222222'
   },
   search: {
     height: 48,
@@ -84,11 +85,11 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   header: {
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: '#3D3D3D',
     shadowColor: theme.COLORS.BLACK,
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 7
     },
     shadowRadius: 8,
     shadowOpacity: 0.2,
@@ -119,5 +120,6 @@ const styles = StyleSheet.create({
   products: {
     width: width - theme.SIZES.BASE * 2,
     paddingVertical: theme.SIZES.BASE * 2,
+    marginBottom: 100,
   },
 });
