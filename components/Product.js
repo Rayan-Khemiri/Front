@@ -1,7 +1,8 @@
 import React from 'react';
 import { withNavigation } from '@react-navigation/compat';
-import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback,Button,TextInput,TouchableOpacity,value } from 'react-native';
+import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback,Button,TextInput,TouchableOpacity,value,View } from 'react-native';
 import { Block, Text, theme } from 'galio-framework';
+import axios from 'axios'
 
 import materialTheme from '../constants/Theme';
 
@@ -11,7 +12,8 @@ const { width } = Dimensions.get('screen');
 class Product extends React.Component {
   state = {
     counter: 0,
-    comment : ""
+    comment : "",
+    data:[]
   }
   onIncrement = () => {
     this.setState({
@@ -22,7 +24,22 @@ class Product extends React.Component {
 //   onChange = event => {
 //     this.setState({comment:})
 // }
-
+postcomment=()=>{
+  axios.post('http:// 172.20.10.14:3000/api/items/postcomment',{des:this.state.comment}).then((data)=>{
+    console.log(data)
+  })
+}
+componentDidMount() {
+   
+  axios.get('http://172.20.10.14:3000/api/items/getcomment').then((data)=>{
+     console.log(data.data)
+     this.setState({
+       data:data.data
+     })
+    //  alert(data)
+})
+ 
+}
  
 
   render() {
@@ -40,17 +57,23 @@ class Product extends React.Component {
           <Block flex space="between" style={styles.productDescription}>
             <Text size={14} style={styles.productTitle}>{product.title}</Text>
             <Text size={12} muted={!priceColor} color={priceColor}>${product.price}</Text>
+          
             <Button 
             title="Like"  onPress={this.onIncrement}/>
-            <TextInput style = {styles.input}/>
+            <TextInput style = {styles.input} name={this.state.comment} />
             <TouchableOpacity
             style = {styles.submitButton} 
             
             >
-            <Text style = {styles.submitButtonText}> Submit </Text></TouchableOpacity>
+            <Text style = {styles.submitButtonText} onPress={this.postcomment}> Submit </Text></TouchableOpacity>
           </Block>
 
         </TouchableWithoutFeedback>
+        <View>
+        {this.state.data.map((elem)=>{
+          <Text>{elem.des}</Text>
+        })}
+        </View>
       </Block>
     );
   }

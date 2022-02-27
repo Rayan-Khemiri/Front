@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView } from 'react-native';
-import { Button, Block, Text, Input, theme,Animated } from 'galio-framework';
+import { StyleSheet, Dimensions, ScrollView, } from 'react-native';
+import { Button, Block, Text, Input, theme,Animated,View } from 'galio-framework';
 import { FontAwesome } from "@expo/vector-icons";
+import axios from 'axios';
 
 
 import { Icon, Product } from '../components/';
@@ -10,7 +11,12 @@ const { width } = Dimensions.get('screen');
 import products from '../constants/products';
 
 export default class Home extends React.Component {
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      data:[]
+    }
+  }
   renderSearch = () => {
     const { navigation } = this.props;
     const iconCamera = <Icon size={16} color={theme.COLORS.MUTED} name="zoom-in" family="material" />
@@ -48,8 +54,14 @@ export default class Home extends React.Component {
       </Block>
     )
   }
+ 
+
+  
+  
+  
 
   renderProducts = () => {
+    
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -67,11 +79,15 @@ export default class Home extends React.Component {
           <Product product={products[3]}  full />
           
           <Product product={products[4]} full />
+        
         </Block>
+          
+          
+          
+
       </ScrollView>
     )
-  }
-  
+}
 
   render() {
     return (
@@ -81,7 +97,22 @@ export default class Home extends React.Component {
       
     );
   }
+  // list = () => {
+  //   return comments.map((element) => {
+  //     return (
+  //       <View key={element.key} style={{margin: 10}}>
+  //         <Text>{element.des}</Text>
+  //       </View>
+  //     );
+  //   });
+  // };
+
+  // render() {
+  //   return <View>{this.list()}</View>;
+  // }
 }
+
+
 
 const styles = StyleSheet.create({
   home: {
