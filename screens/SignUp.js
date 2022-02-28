@@ -1,21 +1,12 @@
-import React from "react"
-import { StyleSheet, Text, View, Image, Button, TextInput } from "react-native"
-
+import React,{useState} from "react";
+import {View ,Text,StyleSheet,Image, useWindowDimensions,onPress,ScrollView,Picker} from "react-native"
+import Logo from "../assets/images/myLogo.png"
+import CustomInput from "../components/customInput/CustomInput"; 
+import CustomButton from "../components/customButton/CusstomButton";
 import * as Google from "expo-google-app-auth"
 
-
-export default class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      signedIn: false,
-      name: "",
-      photoUrl: "",
-      password: '',
-      email: ''
-    }
-  }
-  signIn = async () => {
+import axios from "axios"
+ const signIn = async () => {
     try {
       const result = await Google.logInAsync({
         issuer: 'https://accounts.google.com',
@@ -25,117 +16,122 @@ export default class App extends React.Component {
       });
 
       if (result.type === "success") {
-        this.setState({
+        
           signedIn: true,
-          name: result.user.name,
-          photoUrl: result.user.photoUrl
-        })
+          Username= result.user.name
+          // photoUrl: result.user.photoUrl
       } else {
         console.log("cancelled")
       }
     } catch (err) {
       console.log("error", err)
     }
+    axios.post('http://172.20.10.14:3000/api/user/signUp',{firstName:Username}).then((data)=>{
+      console.log("success", data)
+    }).catch((error)=>{
+      console.error("error", error)
+    })
   }
-  signUp = async () => {
-    const { user, pass } = this.state
-    try {
-      // here place your signup logic
-      console.log('user successfully signed up!: ', success)
-    } catch (err) {
-      console.log('error signing up: ', err)
-    }
-  }
+
+const SignIn = ()=>{
   
-  render() {
-    return (
-      <View style={styles.container}>
-     
-        
-        <View style={styles.container}>
-          {this.state.signedIn ? (
-            <LoggedInPage name={this.state.name} photoUrl={this.state.photoUrl} />
-          ) : (
-            <LoginPage signIn={this.signIn} />
-          )}
-          <TextInput
-          style={styles.input}
-          placeholder='user'
-          autoCapitalize="none"
-          placeholderTextColor='white'
-          onChangeText={val => this.onChangeText('user', val)}
-        />
-        <TextInput
-        style={styles.input}
-        placeholder='Pass'
-        secureTextEntry={true}
-        autoCapitalize="none"
-        placeholderTextColor='white'
-        onChangeText={val => this.onChangeText('pass', val)}
-      />
-         
-          <Button
-            title='Sign in'
-            onPress={this.signUp}
-          />
-        </View>
-
-      </View>
-
-
-
-
-
-
-    )
+   const [FirstName, setFirstName]=useState("");
+   const [Username]=useState("");
+   const [LastName, setLastName]=useState("");
+   const [Email, setEmail]=useState("");
+   const [PhoneNumber, setPhoneNumber]=useState("");
+   const [password,setPassword]=useState("");
+   const {height}=useWindowDimensions();
+   const onSignInPressed =()=>{
+     console.log("Sign in")
+   }
+   const onForgetPassword=()=>{
+     console.warn("forget")
+   }
+   const onSignInGooglePressed=()=>{
+    console.warn("sign in")
   }
-}
+  const onSignUpPressed=()=>{
+    console.warn("onSignUpPress");
+  }
+  const SendUser = () =>{
+    axios.post('http://172.20.10.14:3000/api/user/signUp',{firstName:FirstName,lastName:LastName,email:Email,password:password,phone_number:PhoneNumber}).then((data)=>{
+      console.log("success", data)
+    }).catch((error)=>{
+      console.error("error", error)
+    })
+  
+  }
+  const [selectedValue, setSelectedValue] = useState("java");
 
-const LoginPage = props => {
   return (
-    <View>
-      <Text style={styles.header}>Continue with google</Text>
-      <Button title="Sign in with Google" onPress={() => props.signIn()} />
+    <ScrollView>
+    <View style={styles.root}>
+      <Image
+      source={Logo} 
+       style={[styles.Logo,{height:height * 0.3}]}
+       resizeMode="contain"
+       />
+    <CustomInput 
+    placeholder="FirstName"
+    value={FirstName}
+    setValue ={setFirstName}
+    />
+    <CustomInput 
+    placeholder="LastName"
+    value={LastName}
+    setValue ={setLastName}
+    />
+    <CustomInput 
+    placeholder="Email"
+    value={Email}
+    setValue ={setEmail}
+    />
+    <CustomInput 
+    placeholder="PhoneNumber"
+    value={PhoneNumber}
+    setValue ={setPhoneNumber}
+    keyboardType="numeric"
+    />
+  
+    <CustomInput
+    placeholder="password"
+    value={password}
+    setValue ={setPassword}
+    secureTextEntry={true}
+    />
+    
+
+    <CustomButton text="Sign In" onPress={SendUser}/>
+   
+     <CustomButton text="Sign In with Google" onPress={signIn} bgColor="#FAE9EA"fgColor="#DD4D44"/>
+    
     </View>
+    <View style={{flex: 1,
+      alignItems: "center",
+    paddingBottom:49
+    }}>
+    <Picker
+      selectedValue={selectedValue}
+      style={{ height: 50, width: 150 }}
+      onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+    >
+      <Picker.Item label="Java" value="java" />
+      <Picker.Item label="JavaScript" value="js" />
+    </Picker>
+  </View>
+    </ScrollView>
   )
 }
-
-const LoggedInPage = props => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Welcome:{props.name}</Text>
-      <Image style={styles.image} source={{ uri: props.photoUrl }} />
-    </View>
-  )
+const styles=StyleSheet.create({
+root :{
+  alignItems:'center',
+  padding:20
+},
+Logo:{
+  width:"70%",
+  maxWidth:300,
+  maxHeight:200,
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#111111",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  header: {
-    fontSize: 25
-  },
-  image: {
-    marginTop: 15,
-    width: 150,
-    height: 150,
-    borderColor: "rgba(0,0,0,0.2)",
-    borderWidth: 3,
-    borderRadius: 150
-  },
-  input: {
-    width: 350,
-    height: 55,
-    backgroundColor: '#ffffff',
-    margin: 10,
-    padding: 8,
-    color: 'white',
-    borderRadius: 14,
-    fontSize: 18,
-    fontWeight: '500',
-  },
 })
+export default SignIn
