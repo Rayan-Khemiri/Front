@@ -5,9 +5,6 @@ import {
   View,
   Text,
   StyleSheet,
-  Image,
-  useWindowDimensions,
-  onPress,
   ScrollView,
 } from "react-native";
 import CustomInput from "../components/customInput/CustomInput";

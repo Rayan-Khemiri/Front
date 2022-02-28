@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
-import { Button, Block, Text, Input, theme } from 'galio-framework';
+import { Button, Block, Text, Input, theme,Animated } from 'galio-framework';
+import { FontAwesome } from "@expo/vector-icons";
+
 
 import { Icon, Product } from '../components/';
 
@@ -8,6 +10,7 @@ const { width } = Dimensions.get('screen');
 import products from '../constants/products';
 
 export default class Home extends React.Component {
+  
   renderSearch = () => {
     const { navigation } = this.props;
     const iconCamera = <Icon size={16} color={theme.COLORS.MUTED} name="zoom-in" family="material" />
@@ -40,6 +43,7 @@ export default class Home extends React.Component {
             <Icon size={16} name="camera-18" family="GalioExtra" style={{ paddingRight: 8 }} />
             <Text size={16} style={styles.tabTitle}>Best Deals</Text>
           </Block>
+          
         </Button>
       </Block>
     )
@@ -50,24 +54,31 @@ export default class Home extends React.Component {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.products}>
+        
         <Block flex>
-          <Product product={products[0]} full />
+        
+          <Product product={products[0]} full
+          
+          />
           <Block flex >
             <Product product={products[1]} full />
             <Product product={products[2]} full />
           </Block>
           <Product product={products[3]}  full />
+          
           <Product product={products[4]} full />
         </Block>
       </ScrollView>
     )
   }
+  
 
   render() {
     return (
       <Block flex center style={styles.home}>
         {this.renderProducts()}
       </Block>
+      
     );
   }
 }
@@ -76,6 +87,7 @@ const styles = StyleSheet.create({
   home: {
     width: width,   
     backgroundColor: '#222222'
+    
   },
   search: {
     height: 48,
@@ -100,6 +112,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     marginTop: 10,
     elevation: 4,
+    
   },
   tab: {
     backgroundColor: theme.COLORS.BLACK,
@@ -108,18 +121,22 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     height: 24,
     elevation: 0,
+    
   },
   tabTitle: {
     lineHeight: 19,
     fontWeight: '300'
+    
   },
   divider: {
     borderRightWidth: 0.3,
     borderRightColor: theme.COLORS.MUTED,
+    
   },
   products: {
     width: width - theme.SIZES.BASE * 2,
     paddingVertical: theme.SIZES.BASE * 2,
     marginBottom: 100,
+    
   },
 });

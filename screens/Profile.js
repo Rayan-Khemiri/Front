@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, Image, ImageBackground, Platform,Button } from 'react-native';
 import { Block, Text, theme } from 'galio-framework';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -50,10 +50,12 @@ export default class Profile extends React.Component {
               <Block middle>
                 <Text bold size={12} style={{marginBottom: 8}}>36</Text>
                 <Text muted size={12}>Orders</Text>
+
               </Block>
               <Block middle>
                 <Text bold size={12} style={{marginBottom: 8}}>5</Text>
-                <Text muted size={12}>Bids & Offers</Text>
+                <Text muted size={12}>Bids Offers</Text>
+                
               </Block>
               <Block middle>
                 <Text bold size={12} style={{marginBottom: 8}}>2</Text>
@@ -73,6 +75,7 @@ export default class Profile extends React.Component {
                     resizeMode="cover"
                     style={styles.thumb}
                   />
+                  
                 ))}
               </Block>
             </Block>
