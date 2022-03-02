@@ -1,6 +1,13 @@
+import { Camera } from 'expo-camera';
 import React from 'react';
-import { Dimensions, View } from "react-native";
-import { NodeCameraView } from "react-native-nodemediaclient";
+import {  AppRegistry,
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View } from "react-native";
+// import { NodeCameraView } from "react-native-nodemediaclient";
+import { CameraRollNodeInfo } from 'react-native';
 
 const { width, height } = Dimensions.get("window");
 
@@ -30,7 +37,7 @@ const Streamer = () => {
 
   return (
     <View style={{flex: 1}}>
-      <NodeCameraView
+      <Camera
         style={{width, height}}
         ref={cameraViewRef}
         outputUrl={url}
@@ -43,4 +50,4 @@ const Streamer = () => {
   );
 };
 
-export default Streamer;
+export default Streamer ;
