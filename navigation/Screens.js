@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import { Block, Text, theme } from "galio-framework";
-
+import Post from "../screens/Post"
 import ComponentsScreen from '../screens/Components';
 import HomeScreen from '../screens/Home';
 import OnboardingScreen from '../screens/Onboarding';
@@ -27,7 +27,8 @@ const profile = {
   name: "Ryan Rio",
   type: "Producer",
   plan: "Pro",
-  rating: 4.8
+  rating: 5,
+  Follower:3
 };
 
 
@@ -285,6 +286,20 @@ function AppStack(props) {
         }}
       />
       <Drawer.Screen
+      name="Post"
+      component={Post}
+      options={{
+        drawerIcon: ({ focused }) => (
+          <Icon
+            size={16}
+            name="ios-log-in"
+            family="ionicon"
+            color={focused ? "white" : materialTheme.COLORS.MUTED}
+          />
+        )
+      }}
+    />
+      <Drawer.Screen
         name="Sign Up"
         component={SignUp}
         options={{
@@ -367,7 +382,7 @@ const HomeStack = createStackNavigator({
     screen: ProScreen,
     navigationOptions: ({navigation}) => ({
       header: <Header back white transparent title="" navigation={navigation} />,
-      headerTransparent: true,
+      headerTransparent: t    vc    vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv   vc    cv v cv vc  v vc vc rue,
     })
   },
 },
